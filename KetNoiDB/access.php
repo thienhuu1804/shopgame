@@ -19,7 +19,16 @@ function getAllSanPham()
     $sql= "SELECT * FROM sanpham";
     return sqlQuery($sql);
 }
-
+function sanPhamNoiBat()
+{
+    $sql = "SELECT * FROM sanpham where SoLuong <= 10";
+    return sqlQuery($sql);
+}
+function getChiTietSanPha ()
+{
+    $sql = "SELECT * FROM chitietsanpham";
+    return $sqlQuery($sql);
+} 
 function updateSanPham($maSP , $tenSP ,$moTa  , $hinhAnh, $soLuong , $gia){
     $sql= "UPDATE sanpham SET TenSP='".$tenSP."',HinhAnh='".$hinhAnh."',SoLuong='".$soLuong."',DonGia='".$gia."' WHERE MaSP='".$maSP."';";
 }

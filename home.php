@@ -8,7 +8,9 @@ function getData(){
                 <div>
                     <img class='img' src=".$row["hinhanh"].">
                     <div class='title'>".$row["TenSP"]."</div>
-                    <div class='price'>".$row["DonGia"]."</div>
+                    <div class='price'>"."Giá : ".$row["DonGia"]."</div>
+                    <div class='amount'>"."Số lượng : ".$row["SoLuong"]."</div>
+                    <div><button type='button' class='btn btn-outline-success btnthemgio'>Thêm vào giỏ<i class='fa fa-shopping-cart'></i></button></div>
                 </div>
             </div>
         </div>";
@@ -58,7 +60,7 @@ echo '<div class="container">
 				</div> <!--end slideshow-->
 				<nav class="navbar navbar-inverse">					
 					<ul class="nav navbar-nav menu">
-						<li><a href="?page=dangki">Nổi bật</a></li>
+						<li><a href="?page=noibat">Nổi bật</a></li>
 						<li><a href="#">Bán chạy</a></li>
 						<li><a href="#">Origin</a></li>
 						<li><a href="#">Battle.net</a></li>
@@ -69,6 +71,8 @@ if (isset($_GET["page"])) {
     $page = $_GET['page'];
     if ($page == "dangki")
         include "dangkitaikhoan.php";
+    if ($page == "dangnhap")
+    	include "dangnhap.php";
     else if ($page == "home") {
         getData();
     }
@@ -104,4 +108,5 @@ echo '</div>
 		</div> 
 	</div> 
 </div>';
+
 ?>

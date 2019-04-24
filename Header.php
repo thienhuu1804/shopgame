@@ -20,7 +20,7 @@ echo '<div class="container-fluid">
 				<div class = "col-sm-4 col-md-4 col-lg-4 ">
 					<ul class="nav navbar-nav navbar-center">
 						<li><a href="?page=dangki"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-						<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+						<li><a href="?page=dangnhap"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 					</ul>
 				</div>
 			</div>
