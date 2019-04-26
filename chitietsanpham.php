@@ -2,7 +2,6 @@
 function getCTSP(){
     $result = getChiTietSanPham($MaSP);
     while ($row = mysqli_fetch_array($result)) {
-         $MaSP = $row['MaSP'];
        echo "<div class='chitietsp'>
             <div class='gallery'>
                 <div>
