@@ -23,8 +23,6 @@
             include_once 'home.php';
         if($page == "product")
             include_once 'chitietsanpham.php';
-        if($page== "noibat")
-            include_once 'sanphamnoibat.php';
     }
     ?>
 </body>

@@ -1,23 +1,24 @@
 <?php
 include 'KetNoiDB/access.php';
 function getData(){
-    $result = getAllSanPham();
+	
+    $result = getAllSanPham($MaSP);
     while ($row = mysqli_fetch_array($result)) {
+    	$MaSP = $row['MaSP'];
         echo "<div class='responsive'>
             <div class='gallery'>
                 <div>
-                    <img class='img' src=".$row["hinhanh"].">
+                    <img class='img-responsive img' src=".$row["hinhanh"].">
                     <div class='title'>".$row["TenSP"]."</div>
-                    <div class='price'>"."Giá : ".$row["DonGia"]."</div>
+                    <div class='price'>"."Giá : ".$row["DonGia"]." vnđ"."</div>
                     <div class='amount'>"."Số lượng : ".$row["SoLuong"]."</div>
                     <div><button type='button' class='btn btn-outline-success btnthemgio'>Thêm vào giỏ<i class='fa fa-shopping-cart'></i></button></div>
+                    <a href = 'chitietsanpham.php?MaSP=".$row['MaSP']."'>Chi tiết</a>
                 </div>
             </div>
         </div>";
     }
 }
-
-
 include 'Header.php';
 echo '<div class="container">
 		<div class="row">
@@ -70,13 +71,14 @@ echo '<div class="container">
 if (isset($_GET["page"])) {
     $page = $_GET['page'];
     if ($page == "dangki")
-        include "dangkitaikhoan.php";
+        include "dangkitaikhoan.php" ;
     if ($page == "dangnhap")
-    	include "dangnhap.php";
+    	include "chitietsanpham.php";
     else if ($page == "home") {
         getData();
     }
 } else {
+	$page = "";
     getData();
 }
 echo '</div>
