@@ -1,6 +1,8 @@
 <?php
+include_once './KetNoiDB/access.php';
 function getCTSP(){
-    $result = getChiTietSanPham($MaSP);
+    if($_GET["MaSP"])
+        $result = getChiTietSanPham($_GET["MaSP"]);// $máP dau
     while ($row = mysqli_fetch_array($result)) {
        echo "<div class='chitietsp'>
             <div class='gallery'>
@@ -19,3 +21,4 @@ function getCTSP(){
     } 
 }
 getCTSP();
+?>

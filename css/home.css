@@ -2,6 +2,10 @@
 	width:50%;
 	float: left;
 }
+.responsive a 
+{
+    text-decoration: none;
+}
 .responsive .gallery{
 	text-align: center;
 	float: right;
@@ -35,7 +39,7 @@
 	-moz-box-shadow: -2px 2px 22px 0px rgba(109,117,114,1);
 	box-shadow: -2px 2px 22px 0px rgba(109,117,114,1);
 	transform: scale(1.01);
-	transition: 0.5s;
+	transition: 0.7s;
 	cursor: pointer;
 
 }
@@ -50,10 +54,10 @@
 	text-align: center;
 	margin: auto;
 	margin:10px;
-	height: 300px;
+	height: 290px;
 	border-width: 1px;
-	border-style: solid;
-	font-size: 24px;
+	border-style: groove;
+	font-size: 20px;
 }
 .chitietsp .gallery img{
 	width: 50%;
@@ -67,3 +71,17 @@
 	width: 150px;
 }
 /*================== end chi tiet san pham =============*/
+
+
+/*=================cart===============*/
+.cart
+{
+	font-size: 40px;
+	cursor: pointer;
+	color: red;
+}
+.cart:hover
+{
+	transform: scale(1.05);
+	transition: 0.7s;
+}

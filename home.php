@@ -1,25 +1,26 @@
+<!-- <a href = 'index.php?page=product&MaSP=".$row['MaSP']."'>Chi tiết >></a> -->
 <?php
 include 'KetNoiDB/access.php';
 function getData(){
-	
-    $result = getAllSanPham($MaSP);
+    $result = getAllSanPham();
     while ($row = mysqli_fetch_array($result)) {
-    	$MaSP = $row['MaSP'];
+    	$MaSP = $row['MaSP']; 
+
         echo "<div class='responsive'>
+            <a href = 'index.php?page=product&MaSP=".$row['MaSP']."'>
             <div class='gallery'>
                 <div>
                     <img class='img-responsive img' src=".$row["hinhanh"].">
                     <div class='title'>".$row["TenSP"]."</div>
                     <div class='price'>"."Giá : ".$row["DonGia"]." vnđ"."</div>
-                    <div class='amount'>"."Số lượng : ".$row["SoLuong"]."</div>
+                    <div class='amount'>"."Số lượng : ".$row["SoLuong"]."</div></a>
                     <div><button type='button' class='btn btn-outline-success btnthemgio'>Thêm vào giỏ<i class='fa fa-shopping-cart'></i></button></div>
-                    <a href = 'chitietsanpham.php?MaSP=".$row['MaSP']."'>Chi tiết</a>
                 </div>
             </div>
         </div>";
     }
 }
-include 'Header.php';
+include_once 'Header.php';
 echo '<div class="container">
 		<div class="row">
 			<div class="col-sm-3 left">
@@ -73,7 +74,13 @@ if (isset($_GET["page"])) {
     if ($page == "dangki")
         include "dangkitaikhoan.php" ;
     if ($page == "dangnhap")
-    	include "chitietsanpham.php";
+    	include "dangnhap.php";
+    if ($page == "timkiem")
+    	include 'timkiem.php';
+    if ($page =="giohang")
+    	include 'addtocart.php';
+    if($page == "product")
+            include_once 'chitietsanpham.php';
     else if ($page == "home") {
         getData();
     }
@@ -81,6 +88,7 @@ if (isset($_GET["page"])) {
 	$page = "";
     getData();
 }
+
 echo '</div>
 	</div>
 </div>

@@ -1,9 +1,9 @@
 <?php
 	include 'access.php';
-
 	$TenSP = " ";
-	if (isset($_GET['timtheoten']))
-    $result = getSPByTen($TenSP);
+	if (isset($_GET['TenSP']))
+    $result = getSPTheoTen($TenSP);
+    if ($result)
     while ($row = mysqli_fetch_array($result)) {
         echo "<div class='responsive'>
             <div class='gallery'>

@@ -22,7 +22,7 @@ function getSPTheoTen ($TenSP)
     return sqlQuery ($sql);
 }
 
-function getChiTietSanPham ($MaSP)
+function getChiTietSanPham ($MaSP) 
 {
     $sql = "SELECT sanpham.hinhanh,sanpham.TenSP,ctsp.MaSP,ctsp.MaNCC,ctsp.TheLoai,ctsp.mota,ctsp.CauHinh,ctsp.DungLuong FROM chitietsanpham ctsp,sanpham WHERE ctsp.MaSP = sanpham.MaSP AND ctsp.MaSP = '$MaSP'";
     return sqlQuery($sql);
