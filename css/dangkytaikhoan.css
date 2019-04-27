@@ -1,6 +1,10 @@
-.formdktk {
-  width: 50%;
-  height: 50%;
-  margin: auto;
-  padding: auto;
+body {  
+padding-top: 0px;
+margin-top:50px;
+}
+.form-control { 
+margin-bottom: 10px;
+}
+.login-screen-bg {  
+background-color: #EFEFEF;
 }

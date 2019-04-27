@@ -1,6 +1,7 @@
 <?php
-echo '<h2>Đăng nhập tài khoản</h2>
-<form method="" action="" name="formdangnhap" class="formdn" >
+echo '<h2>Login Form</h2>
+
+<form method="" action="" name="formdangnhap">
   <div class="imgcontainer">
     <img src="img/user.jpg" alt="Avatar" class="avatar">
   </div>
@@ -12,9 +13,9 @@ echo '<h2>Đăng nhập tài khoản</h2>
     <input type="password" placeholder="Mật khẩu..." name="psw" required>
         
     <button type="submit">Đăng nhập</button>
+    <button><a href="?id=dangki">Đăng ký</button></a>
     <label>
       <input type="checkbox" checked="checked" name="remember"> Nhớ mật khẩu
     </label>
-</form>
-';
+</form>';
 ?>

@@ -1,9 +1,5 @@
 body {font-family: Arial, Helvetica, sans-serif;}
-.formdn {
-  width: 60%;
-  margin: auto;
-  padding: auto;
-}
+form {}
 
 input[type=text], input[type=password] {
   width: 100%;
@@ -43,6 +39,11 @@ img.avatar {
   width: 10%;
   border-radius: 50%;
 }
+
+.container {
+  padding: 16px;
+}
+
 span.psw {
   float: right;
   padding-top: 16px;
