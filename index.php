@@ -12,18 +12,19 @@
     <link rel="stylesheet" type="text/css" href="css/formdangnhap.css">
     <link rel="stylesheet" type="text/css" href="css/dangkytaikhoan.css">
     <link rel="stylesheet" type="text/css" href="css/home.css">
+    <link rel="stylesheet" type="text/css" href="css/cart.css">
+    <script src="js/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="javascript/js.js"></script>
 </head>
 <body>
     <?php
-    include_once 'home.php';       
-    if(isset($_GET['page'])){
-        $page = $_GET['page'];
-        if($page=="home.php")
-            include_once 'home.php';
-        if($page == "product")
-            include_once 'chitietsanpham.php';
-    }
+    include_once 'home.php';
+    // if(isset($_GET['page'])){
+    //     $page = $_GET['page'];
+    //     if($page=="home.php")
+    //         include_once 'home.php';
+        
+    // }
     ?>
 </body>
 </html>

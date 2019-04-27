@@ -8,19 +8,22 @@ echo '<div class="container-fluid">
 				<div class = "col-sm-4 col-md-4 col-lg-4">
 					<form class="navbar-form navbar-center timkiem" action="" method = "GET">
 						<div class="input-group">
-							<input type="text" class="form-control" placeholder="Tìm kiếm..." name="search">
+							<input type="text" class="form-control" placeholder="Tìm kiếm..." name="TenSP">
 							<div class="input-group-btn">
-								<button class="btn btn-default" type="submit" value="find">
+								<a href="?page=timkiem"><button class="btn btn-default" type="submit" value="find">
 									<i class="glyphicon glyphicon-search"></i>
-								</button>
+								</button></a>
 							</div>
 						</div>
 					</form>
 				</div>
-				<div class = "col-sm-4 col-md-4 col-lg-4 ">
-					<ul class="nav navbar-nav navbar-center">
+				<div class = "col-sm-3 col-md-3 col-lg-3 ">
+					<ul class="nav navbar-nav navbar-left">
 						<li><a href="?page=dangki"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
 						<li><a href="?page=dangnhap"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+						    <div class = "col-sm-1 col-md-1 col-lg-1">
+						<li><a href="?page=giohang"><i class="fa fa-shopping-cart cart"></i></a></li>
+						</div>
 					</ul>
 				</div>
 			</div>
@@ -37,8 +40,7 @@ echo '<div class="container-fluid">
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
-					<li><a href="?page=home">Home</a></li>
-					
+					<li><a href="?page=home"><span class="glyphicon glyphicon-home">Home</span></a></li>
 					<li><a href="#">Steam</a></li>
 					<li><a href="#">Origin</a></li>
 					<li><a href="#">PUBG</a></li>
