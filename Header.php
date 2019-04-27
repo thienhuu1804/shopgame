@@ -5,12 +5,12 @@ echo '<div class="container-fluid">
 				<div class = "col-sm-4 col-md-4 col-lg-4 logo">
 					<img src="img/logo.jpg" class="img-responsive center-block">
 				</div>
-				<div class = "col-sm-4 col-md-4 col-lg-4 timkiemnhanh">
-					<form class="navbar-form navbar-center" action="###">
+				<div class = "col-sm-4 col-md-4 col-lg-4">
+					<form class="navbar-form navbar-center timkiem" action="" method = "GET">
 						<div class="input-group">
 							<input type="text" class="form-control" placeholder="Tìm kiếm..." name="search">
 							<div class="input-group-btn">
-								<button class="btn btn-default" type="submit">
+								<button class="btn btn-default" type="submit" value="find">
 									<i class="glyphicon glyphicon-search"></i>
 								</button>
 							</div>
@@ -20,7 +20,7 @@ echo '<div class="container-fluid">
 				<div class = "col-sm-4 col-md-4 col-lg-4 ">
 					<ul class="nav navbar-nav navbar-center">
 						<li><a href="?page=dangki"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-						<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+						<li><a href="?page=dangnhap"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 					</ul>
 				</div>
 			</div>
@@ -38,7 +38,7 @@ echo '<div class="container-fluid">
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
 					<li><a href="?page=home">Home</a></li>
-					<li><a href="#">Thể loại</a></li>
+					
 					<li><a href="#">Steam</a></li>
 					<li><a href="#">Origin</a></li>
 					<li><a href="#">PUBG</a></li>
