@@ -18,7 +18,7 @@ function getAllSanPham()
 }
 function getSPTheoTen ($TenSP)
 {
-    $sql= "SELECT * FROM sanpham WHERE TenSP = '$TenSP'";
+    $sql= "SELECT * FROM sanpham WHERE TenSP LIKE '%".$TenSP."%'";
     return sqlQuery ($sql);
 }
 

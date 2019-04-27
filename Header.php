@@ -1,4 +1,5 @@
 <?php
+
 echo '<div class="container-fluid">
 		<div class = "jumbotron jumbotron-fluid text-center header">
 			<div class="row">
@@ -8,12 +9,13 @@ echo '<div class="container-fluid">
 				<div class = "col-sm-4 col-md-4 col-lg-4">
 					<form class="navbar-form navbar-center timkiem" action="" method = "GET">
 						<div class="input-group">
-							<input type="text" class="form-control" placeholder="Tìm kiếm..." name="TenSP">
-							<div class="input-group-btn">
-								<a href="?page=timkiem"><button class="btn btn-default" type="submit" value="find">
-									<i class="glyphicon glyphicon-search"></i>
-								</button></a>
-							</div>
+                                                    <input type="text" style="display:none" name="page" value="timkiem">
+                                                    <input type="text" class="form-control" placeholder="Tìm kiếm..." name="TenSP">
+                                                    <div class="input-group-btn">
+                                                        <button class="btn btn-default" type="submit">
+                                                            <i class="glyphicon glyphicon-search"></i>
+                                                        </button>
+                                                    </div>
 						</div>
 					</form>
 				</div>
@@ -40,7 +42,7 @@ echo '<div class="container-fluid">
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
-					<li><a href="?page=home"><span class="glyphicon glyphicon-home">Home</span></a></li>
+					<li><a href="?page=home"><span class="glyphicon glyphicon-home"> HOME</span></a></li>
 					<li><a href="#">Steam</a></li>
 					<li><a href="#">Origin</a></li>
 					<li><a href="#">PUBG</a></li>

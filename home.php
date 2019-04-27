@@ -1,4 +1,3 @@
-<!-- <a href = 'index.php?page=product&MaSP=".$row['MaSP']."'>Chi tiết >></a> -->
 <?php
 include 'KetNoiDB/access.php';
 function getData(){
