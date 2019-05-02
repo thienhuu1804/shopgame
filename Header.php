@@ -1,5 +1,8 @@
 <?php
-
+$sl=0;
+foreach ($_SESSION['cart'] as $key => $value) {
+	$sl=$sl+$_SESSION['cart'][$key]['sl'];
+}
 echo '<div class="container-fluid">
 		<div class = "jumbotron jumbotron-fluid text-center header">
 			<div class="row">
@@ -24,7 +27,7 @@ echo '<div class="container-fluid">
 						<li><a href="?page=dangki"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
 						<li><a href="?page=dangnhap"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 						    <div class = "col-sm-1 col-md-1 col-lg-1">
-						<li><a href="?page=giohang"><i class="fa fa-shopping-cart cart"></i></a></li>
+						<li><a href="?page=giohang"><i class="fa fa-shopping-cart cart"><span class="badge badge-secondary" >'.$sl.'</span></i></a></li>
 						</div>
 					</ul>
 				</div>
