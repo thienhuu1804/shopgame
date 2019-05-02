@@ -8,7 +8,7 @@ function kiemtra(){
 	var f=/[a-zA-Z]/;
 	var l=/[a-zA-Z]/;
 	var e=/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
-	var p=/^0[0-9]{9}$/;
+	
 	
 	if(f.test(ho)==false){
 		alert("Họ không hợp lệ!!!");
@@ -22,8 +22,9 @@ function kiemtra(){
 		alert("Email khong hop le !!!");
 		return false;
 	}
-	if(p.test(pw)==false){
+	if(pw.length < 6){
 		alert("Password không hợp lệ!!!");
 		return false;
 	}
+    return true;
 }
