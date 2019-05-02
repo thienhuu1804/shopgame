@@ -54,7 +54,7 @@ if (isset($_GET["page"])) {
         include "dangkitaikhoan.php";
     if($_GET["lastname"] && $_GET["firstname"] && $_GET["email"] && $_GET["pass"] && $_GET["diachi"] && $_GET["gioi-tinh"]){
         
-        header("Location: index.php?home");
+        header("Location: index.php?page=home");
     }
     if ($page == "dangnhap")
         include "dangnhap.php";
