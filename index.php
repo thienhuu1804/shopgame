@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <?php 
+    session_start();
+    ?>
     <title>Shop game</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,16 +18,59 @@
     <link rel="stylesheet" type="text/css" href="css/cart.css">
     <script src="js/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="javascript/js.js"></script>
+    <script type="text/javascript" src="javascript/giohang.js"></script>
+    <style type="text/css">
+    table{
+        color: #337ab7;
+    }
+    th,td{
+        text-align: center;
+    }
+    #itemAmount {
+        text-align: center;
+        max-width: 40px;
+        padding: 5px;
+        border-radius: 5px;
+        border: none;
+    }
+
+    .Tang {
+        /*padding: 10px;*/
+        border-radius: 50%;
+        border: none;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        font-weight: bold;
+        font-size: 20px;
+        color: #555;
+    }
+
+    .Tang:hover {
+        background-color: #21a521;
+        color: #fff;
+    }
+    .Giam {
+        /*padding: 10px;*/
+        border-radius: 50%;
+        border: none;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        font-weight: bold;
+        font-size: 20px;
+        color: #555;
+    }
+
+    .Giam:hover {
+        background-color: red;
+        color: #fff;
+    }
+</style>
 </head>
 <body>
     <?php
     include_once 'home.php';
-    // if(isset($_GET['page'])){
-    //     $page = $_GET['page'];
-    //     if($page=="home.php")
-    //         include_once 'home.php';
-        
-    // }
     ?>
 </body>
 </html>
