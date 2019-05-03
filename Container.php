@@ -52,14 +52,18 @@ if (isset($_GET["page"])) {
     $page = $_GET['page'];
     if ($page == "dangki")
         include "dangkitaikhoan.php";
-    if($_GET["lastname"] && $_GET["firstname"] && $_GET["email"] && $_GET["pass"] && $_GET["diachi"] && $_GET["gioi-tinh"]){
-        
+    if ($_GET["lastname"] && $_GET["firstname"] && $_GET["email"] && $_GET["pass"] && $_GET["diachi"] && $_GET["gioi-tinh"]) {
+
         header("Location: index.php?page=home");
     }
     if ($page == "dangnhap")
         include "dangnhap.php";
     if ($page == "timkiem")
         include 'timkiem.php';
+    if ($page == "khachhangvip")
+        include 'khachhangvip.php';
+    if ($page == "lienhe")
+        include 'lienhe.php';
     if ($page == "giohang")
         include 'addtocart.php';
     if ($page == "product")
