@@ -39,7 +39,8 @@
 	-moz-box-shadow: -2px 2px 22px 0px rgba(109,117,114,1);
 	box-shadow: -2px 2px 22px 0px rgba(109,117,114,1);
 	transform: scale(1.01);
-	transition: 0.7s;
+	border-color:#1FF23C;
+	transition: 0.1s;
 	cursor: pointer;
 
 }
