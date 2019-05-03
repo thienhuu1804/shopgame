@@ -1,7 +1,9 @@
 <?php
 $sl=0;
-foreach ($_SESSION['cart'] as $key => $value) {
+if(!empty($_SESSION['cart'])){
+	foreach ($_SESSION['cart'] as $key => $value) {
 	$sl=$sl+$_SESSION['cart'][$key]['sl'];
+}
 }
 echo '<div class="container-fluid">
 		<div class = "jumbotron jumbotron-fluid text-center header">

@@ -24,10 +24,10 @@ include_once 'Header.php';
 echo '<div class="container">
 	<div class="row">
 		<div class="col-sm-3 left">
-			<li><img src="img/anh1.PNG" class="img-responsive center-block" alt="anh1"></li>
-			<li><img src="img/anh2.PNG" class="img-responsive center-block" alt="anh2"></li>
-			<li><img src="img/anh3.PNG" class="img-responsive center-block" alt="anh3"></li>
-			<li><img src="img/anh4.PNG" class="img-responsive center-block" alt="anh4"></li>
+			<li><a href="##"><img src="img/anh1.PNG" class="img-responsive center-block" alt="anh1"></a></li>
+			<li><a href="?page=lienhe"><img src="img/anh2.PNG" class="img-responsive center-block" alt="anh2"></a></li>
+			<li><a href="?page=khachhangvip"><img src="img/anh3.PNG" class="img-responsive center-block" alt="anh3"></a></li>
+			<li><a href="https://www.youtube.com/watch?v=lvyPzTh8agI&list=PLlh2tpWKa6tHocKmpqBg_m85mq6P-pqks&index=3"><img src="img/anh4.PNG" class="img-responsive center-block" alt="anh4"></a></li>
 		</div>
 		<div class="col-sm-9 right">
 			<!--Slideshow-->
@@ -60,7 +60,7 @@ echo '<div class="container">
 					<span class="sr-only">Next</span>
 				</a>
 			</div> <!--end slideshow-->
-			<nav class="navbar navbar-inverse">					
+			<nav class="navbar navbar-inverse" id="navbar2">					
 				<ul class="nav navbar-nav menu">
 					<li><a href="?page=noibat">Nổi bật</a></li>
 					<li><a href="#">Bán chạy</a></li>
@@ -81,6 +81,10 @@ echo '<div class="container">
 			include 'addtocart.php';
 			if($page == "product")
 			include_once 'chitietsanpham.php';
+			if ($page=="khachhangvip")
+			include 'khachhangvip.php';
+			if ($page=="lienhe")
+			include 'lienhe.php';
 			else if ($page == "home") {
 			getData();
 		}
