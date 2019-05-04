@@ -1,5 +1,9 @@
 <?php
-
+if (isset($_GET["page"])) {
+    $page = $_GET['page'];
+} else {
+    $page = "home";
+}
 echo '<div class="container">
 		<div class="row">
 			<div class="col-sm-3 left">
@@ -9,8 +13,9 @@ echo '<div class="container">
 				<li><img src="img/anh4.PNG" class="img-responsive center-block" alt="anh4"></li>
 			</div>
 			<div class="col-sm-9 right">
-				<!--Slideshow-->
-				<div id="myCarousel" class="carousel slide" data-ride="carousel">
+				<!--Slideshow-->';
+                                if($page == "home")
+                                    echo '<div id="myCarousel" class="carousel slide" data-ride="carousel">
 					<!-- Indicators -->
 					<ol class="carousel-indicators">
 						<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -38,7 +43,8 @@ echo '<div class="container">
 						<span class="glyphicon glyphicon-chevron-right"></span>
 						<span class="sr-only">Next</span>
 					</a>
-				</div> <!--end slideshow-->
+				</div>';
+				 '<!--end slideshow-->
 				<nav class="navbar navbar-inverse">					
 					<ul class="nav navbar-nav menu">
 						<li><a href="?page=noibat">Nổi bật</a></li>
@@ -48,9 +54,8 @@ echo '<div class="container">
 						<li><a href="#">Khuyến mãi</a></li>
 					</ul>	
 				</nav>';
-if (isset($_GET["page"])) {
-    $page = $_GET['page'];
-    if ($page == "dangki")
+
+if ($page == "dangki")
         include "dangkitaikhoan.php";
     if (isset($_GET["lastname"]) && isset($_GET["firstname"]) && isset($_GET["email"]) && isset($_GET["pass"]) && isset($_GET["diachi"]) && isset($_GET["gioi-tinh"])) {
 
@@ -71,10 +76,6 @@ if (isset($_GET["page"])) {
     else if ($page == "home") {
         showAllSanPham();
     }
-} else {
-    $page = "home";
-    showAllSanPham();
-}
 if (isset($_GET["mota"])) {
     $mota = "";
     addMoTa($_GET["masp"], $mota);
