@@ -52,7 +52,7 @@ if (isset($_GET["page"])) {
     $page = $_GET['page'];
     if ($page == "dangki")
         include "dangkitaikhoan.php";
-    if ($_GET["lastname"] && $_GET["firstname"] && $_GET["email"] && $_GET["pass"] && $_GET["diachi"] && $_GET["gioi-tinh"]) {
+    if (isset($_GET["lastname"]) && isset($_GET["firstname"]) && isset($_GET["email"]) && isset($_GET["pass"]) && isset($_GET["diachi"]) && isset($_GET["gioi-tinh"])) {
 
         header("Location: index.php?page=home");
     }
@@ -72,6 +72,10 @@ if (isset($_GET["page"])) {
         showAllSanPham();
     }
 } else {
-    $page = "";
+    $page = "home";
     showAllSanPham();
+}
+if (isset($_GET["mota"])) {
+    $mota = "";
+    addMoTa($_GET["masp"], $mota);
 }
