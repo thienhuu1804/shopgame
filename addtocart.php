@@ -35,8 +35,7 @@ if (!empty($_SESSION["cart"]))
 	</div>
 </div>';
 
-echo "<pre />";
-var_dump($_SESSION["cart"]);
+
 }
 else echo 'Giỏ hàng rỗng :))';
 
