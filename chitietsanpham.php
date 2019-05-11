@@ -14,8 +14,9 @@ function getCTSP(){
                     <div class="theloai">Thể loại :'.$row["TheLoai"].'</div>
                      <div class="cauhinh">Cấu hình :'.$row["CauHinh"].'</div>
                       <div class="theloai">Dung lượng :'.$row["DungLuong"].'</div>
-                    <div><button type="button" class="btn btn-outline-success btnthemgio">Thêm vào giỏ<i class="fa fa-shopping-cart"></i></button></div>
+                    <div><button type="button" class="btn btn-outline-success btnthemgiochitiet" onclick=ajax("' . $row["MaSP"] . '");>Thêm vào giỏ<i class="fa fa-shopping-cart"></i></button></div>
                 </div>
+                <div>Mô tả: '.$row["mota"].'</div>
             </div>
         </div>';
     } 

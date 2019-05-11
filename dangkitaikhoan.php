@@ -1,7 +1,7 @@
 ﻿<?php
 echo'
 <div class="row">
-	<form name="dk" class="formdktk" onsubmit="return kiemtra();">
+	<form name="dk" class="formdktk" onsubmit="return kiemtra();"  >
 		<h2>Đăng ký tài khoản</h2>
 		<div class="form-group">
 			<div class="form-row">
@@ -28,19 +28,13 @@ echo'
 			<input type="text" class="form-control" placeholder="Địa chỉ của bạn" required name="diachi">
 		</div>
 		<div class="form-group">
-			<label>Giới tính</label>
-			<div class="row">
-				<div class="col-md-2">
+			<label>Giới tính</label>	
 					<label class="btn btn-outline-secondary">
 						<input type="radio" name="gioi-tinh" value="Nam">Nam
 					</label>
-				</div>
-				<div class="col-md-10">
 					<label class="btn btn-outline-secondary">
 						<input type="radio" name="gioi-tinh" value="Nữ">Nữ
 					</label>
-				</div>
-			</div>
 		</div>
 		<div class="form-group">
 			<input type="checkbox" required name="">

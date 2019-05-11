@@ -67,7 +67,11 @@
 	margin: 0px;
 	padding: 0px;
 }
-.chitietsp .gallery .btnthemgio
+.chitietsp .gallery .btnthemgio .btnthemgiochitiet
+{
+	width: 150px;
+}
+.chitietsp .gallery .btnthemgiochitiet
 {
 	width: 150px;
 }
