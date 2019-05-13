@@ -10,7 +10,6 @@ function sqlQuery($sql) {
         return $result;
     } else {
         echo mysqli_error($con);
-
         return 0;
     }
 }
@@ -44,12 +43,6 @@ function getChiTietSanPham($MaSP) {
     return sqlQuery($sql);
 }
 
-/*
-  function getChiTietSanPham ($MaSP)
-  {
-  $sql = "SELECT sanpham.hinhanh,sanpham.TenSP,ctsp.MaSP,sp.DonGia,ctsp.MaNCC,ctsp.TheLoai,ctsp.mota,ctsp.CauHinh,ctsp.DungLuong FROM chitietsanpham ctsp,sanpham WHERE ctsp.MaSP = sanpham.MaSP AND ctsp.MaSP = '$MaSP'";
-  return sqlQuery($sql);
-  } */
 
 function getToTal($MaSP) {
     $sql = "SELECT count (MaSP) as ToTal FROM sanpham";
@@ -74,3 +67,4 @@ function deleteSanPham($masp) {
             echo "<script>window.open('index.php','_self')</script>";
         }
 }
+
