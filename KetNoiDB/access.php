@@ -10,7 +10,7 @@ function sqlQuery($sql) {
         return $result;
     } else {
         echo mysqli_error($con);
-        
+
         return 0;
     }
 }
@@ -63,4 +63,14 @@ function updateSanPham($maSP, $tenSP, $moTa, $hinhAnh, $soLuong, $gia) {
 function addMoTa($masp, $mota) {
     $sql = "UPDATE ChiTietSanPham SET mota='" . $mota . "' WHERE MaSP='" . $masp . "';";
     return sqlQuery($sql);
+}
+
+function deleteSanPham($masp) {
+        $masp = $_GET['delete_sp'];
+        $query = "DELETE FROM sanpham WHERE MaSP='.$masp.'";
+        $confirm = mysqli_query($connection, $delete_sp);
+        if ($delete_sp) {
+            echo "<script>alert('Đã xóa 1 sản phẩm!')</script>";
+            echo "<script>window.open('index.php','_self')</script>";
+        }
 }
