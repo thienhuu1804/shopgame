@@ -14,7 +14,7 @@ if (!empty($_SESSION["cart"]))
 		<td>'.$_SESSION["cart"][$key]["tensp"].'</td>
 		<td>'.number_format($_SESSION["cart"][$key]["dongia"]).' vnđ</td>
 		<td><input type="button" id="giamsp" class="Giam" name="amountDecrease" value="-" " onclick="giamsanpham(`'.$key.'`)"/>
-			<input type="number" id="itemAmount" value="'.$_SESSION["cart"][$key]["sl"].'" onkeyup="nhapsosanpham(`'.$key.'`)" >
+			<input type="number" id="itemAmount" value="'.$_SESSION["cart"][$key]["sl"].'" onkeyup="nhapsosanpham(`'.$key.'`)"/>
 			<input type="button" id="tangsp" class="Tang" name="amountIncrease" value="+" " onclick="tangsanpham(`'.$key.'`)"/> <br>
 			<td>'.number_format($_SESSION["cart"][$key]["sl"]*$_SESSION["cart"][$key]["dongia"]).' vnđ</td>
 			<td><button onclick="xoa(`'.$key.'`);" style="margin-bottom: 10px" type="button" class="btn btn-danger btn-lg btn-sm"><span class="glyphicon glyphicon-trash"></span></button></td>

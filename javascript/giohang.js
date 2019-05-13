@@ -15,9 +15,8 @@ function xoa(masp){
 			type:"GET",
 			url:"updatet.php",
 			data:{"masp":masp,
-					"xoa":1}
+			"xoa":1}
 		}).done(function(data){
-			alert (data);
 			update (data,masp);
 			$('tr#'+masp).hide();
 		})
@@ -29,15 +28,16 @@ function tangsanpham (masp)
 	sl = Number(sl)+1;
 	$('tr#'+masp+' td:eq(3) input#itemAmount').val(sl);
 	$.ajax({
-			type:"GET",
-			url:"updatet.php",
-			data:{"masp":masp,
-					"soluong":sl,
-					"xoa":0}
-		}).done(function(data){
-			update (data,masp);
-			$('tr#'+masp+' td:eq(4)').text(formatNumber(JSON.parse(data).tien,".",",")+"vnđ");
-		})
+		type:"GET",
+		url:"updatet.php",
+		data:{"masp":masp,
+		"soluong":sl,
+		"xoa":0}
+	}).done(function(data){	
+		//$('.col-md-12 tr td:eq(4)').text(formatNumber(JSON.parse(data).tien,".",",")+" vnđ");
+		$('tr#'+masp+' td:eq(4)').text(formatNumber(JSON.parse(data).tien,".",",")+" vnđ");
+		update (data,masp);
+	})
 }
 function giamsanpham (masp)
 {
@@ -46,15 +46,15 @@ function giamsanpham (masp)
 	if (sl<1)  sl=1;
 	$('tr#'+masp+' td:eq(3) input#itemAmount').val(sl);
 	$.ajax({
-			type:"GET",
-			url:"updatet.php",
-			data:{"masp":masp,
-					"soluong":sl,
-					"xoa":0}
-		}).done(function(data){
-			update (data,masp);
-			$('tr#'+masp+' td:eq(4)').text(formatNumber(JSON.parse(data).tien,".",",")+"vnđ");
-		})
+		type:"GET",
+		url:"updatet.php",
+		data:{"masp":masp,
+		"soluong":sl,
+		"xoa":0}
+	}).done(function(data){
+		$('tr#'+masp+' td:eq(4)').text(formatNumber(JSON.parse(data).tien,".",",")+" vnđ");
+		update (data,masp);
+	})
 
 }
 function nhapsosanpham (masp)
@@ -63,15 +63,15 @@ function nhapsosanpham (masp)
 	if (sl<1)  sl=1;
 	$('tr#'+masp+' td:eq(3) input#itemAmount').val(sl);
 	$.ajax({
-			type:"GET",
-			url:"updatet.php",
-			data:{"masp":masp,
-					"soluong":sl,
-					"xoa":0}
-		}).done(function(data){
-			update (data,masp);
-			$('tr#'+masp+' td:eq(4)').text(formatNumber(JSON.parse(data).tien,".",",")+"vnđ");
-		})
+		type:"GET",
+		url:"updatet.php",
+		data:{"masp":masp,
+		"soluong":sl,
+		"xoa":0}
+	}).done(function(data){
+		$('tr#'+masp+' td:eq(4)').text(formatNumber(JSON.parse(data).tien,".",",")+" vnđ");
+		update (data,masp);
+	})
 }
 function formatNumber(nStr, decSeperate, groupSeperate) {
 	nStr += '';
@@ -88,8 +88,9 @@ function update(data,masp)
 {
 	$('.badge.badge-secondary').text(JSON.parse(data).tongsl);
 	$('#tongsoluong').text(JSON.parse(data).tongsl);
-	$('#tongsotien').text(formatNumber(JSON.parse(data).tongtien,".",",")+"vnđ");
-	if(JSON.parse(data).tongsl == 0) {
+	$('#tongsotien').text(formatNumber(JSON.parse(data).tongtien,".",",")+" vnđ");
+	if(JSON.parse(data).tongsl == 0)
+	{
 		$('.col-sm-9.right').html(`<img class="img-responsive" width="900x" height=500px" src="img/giohangrong.png">
 			<a href="http://localhost:8080/DoAn/shopgame1/index.php?page=home"><button type="button" class="btn btn-warning">Mua ngay</button></a>`);
 	}
