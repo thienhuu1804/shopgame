@@ -15,7 +15,7 @@
 		<th>Xóa tài khoản</th>
 	</tr>
 <?php
-include ('C:\xampp\htdocs\shopgame-master\KetNoiDB\access.php');
+include '../KetNoiDB/access.php';
 $connection=mysqli_connect("localhost", "root", "", "shopgame") or die("can't connect this database");
   mysqli_set_charset($connection, 'UTF8');
 $get_c =  "SELECT * from thanhvien";

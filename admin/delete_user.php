@@ -1,5 +1,5 @@
 <?php
- include 'C:\xampp\htdocs\shopgame-master\KetNoiDB\access.php';
+ include '../KetNoiDB/access.php';
   $connection=mysqli_connect("localhost", "root", "", "shopgame") or die("can't connect this database");
  if(isset($_GET['delete_user']))
 {

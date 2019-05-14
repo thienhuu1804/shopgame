@@ -7,6 +7,7 @@ if (!empty($_SESSION["cart"]))
 	$tonggiatien = 0 ;
 	foreach ($_SESSION["cart"] as $key => $value) {
 	$tongsl = $tongsl + $_SESSION["cart"][$key]["sl"];
+        $tong = $_SESSION["cart"][$key]["sl"]*$_SESSION["cart"][$key]["dongia"];
 	$tonggiatien = $tonggiatien + $_SESSION["cart"][$key]["sl"]*$_SESSION["cart"][$key]["dongia"];
 	$tongtien = number_format($tonggiatien);
 	$s=$s.'<tr id="'.$key.'">
@@ -16,7 +17,7 @@ if (!empty($_SESSION["cart"]))
 		<td><input type="button" id="giamsp" class="Giam" name="amountDecrease" value="-" " onclick="giamsanpham(`'.$key.'`)"/>
 			<input type="number" id="itemAmount" value="'.$_SESSION["cart"][$key]["sl"].'" onkeyup="nhapsosanpham(`'.$key.'`)" >
 			<input type="button" id="tangsp" class="Tang" name="amountIncrease" value="+" " onclick="tangsanpham(`'.$key.'`)"/> <br>
-			<td>'.number_format($_SESSION["cart"][$key]["sl"]*$_SESSION["cart"][$key]["dongia"]).' vnđ</td>
+			<td id="tong">'.number_format($tong).' vnđ</td>
 			<td><button onclick="xoa(`'.$key.'`);" style="margin-bottom: 10px" type="button" class="btn btn-danger btn-lg btn-sm"><span class="glyphicon glyphicon-trash"></span></button></td>
 		</tr>';
 	}

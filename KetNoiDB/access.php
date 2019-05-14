@@ -13,15 +13,16 @@ function sqlQuery($sql) {
         return 0;
     }
 }
-
-//function addTaiKhoan($tenDangNhap,){
-//    
-//}
-
 function getAllSanPham() {
     $sql = "SELECT * FROM sanpham";
     return sqlQuery($sql);
 }
+
+function getAllNcc() {
+    $sql = "SELECT * FROM nhacungcap";
+    return sqlQuery($sql);
+}
+
 
 function getSPTheoTen($TenSP) {
     $sql = "SELECT * FROM sanpham WHERE TenSP LIKE '%" . $TenSP . "%'";
@@ -59,12 +60,7 @@ function addMoTa($masp, $mota) {
 }
 
 function deleteSanPham($masp) {
-        $masp = $_GET['delete_sp'];
-        $query = "DELETE FROM sanpham WHERE MaSP='.$masp.'";
-        $confirm = mysqli_query($connection, $delete_sp);
-        if ($delete_sp) {
-            echo "<script>alert('Đã xóa 1 sản phẩm!')</script>";
-            echo "<script>window.open('index.php','_self')</script>";
-        }
+        $query = "DELETE FROM sanpham WHERE MaSP='$masp';";
+        return sqlQuery($query);
 }
 

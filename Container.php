@@ -64,17 +64,17 @@ if (isset($_GET["lastname"]) && isset($_GET["firstname"]) && isset($_GET["email"
 }
 if ($page == "dangnhap")
     include "dangnhap.php";
-if ($page == "timkiem")
+else if ($page == "timkiem")
     include 'timkiem.php';
-if ($page == "lienhe")
+else if ($page == "lienhe")
     include 'lienhe.php';
-if ($page == "giohang")
+else if ($page == "giohang")
     include 'addtocart.php';
-if ($page == "product")
+else if ($page == "product")
     include_once 'chitietsanpham.php';
-if ($page == "khachhangvip")
+else if ($page == "khachhangvip")
     include 'khachhangvip.php';
-if ($page == "napthe")
+else if ($page == "napthe")
     include 'napthe.php';
 else{
     $page == "home";
