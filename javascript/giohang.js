@@ -95,4 +95,3 @@ function update(data,masp)
 			<a href="http://localhost:8080/DoAn/shopgame/index.php?page=home"><button type="button" class="btn btn-warning">Mua ngay</button></a>`);
 	}
 }
-

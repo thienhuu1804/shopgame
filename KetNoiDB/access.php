@@ -10,19 +10,19 @@ function sqlQuery($sql) {
         return $result;
     } else {
         echo mysqli_error($con);
-        
         return 0;
     }
 }
-
-//function addTaiKhoan($tenDangNhap,){
-//    
-//}
-
 function getAllSanPham() {
     $sql = "SELECT * FROM sanpham";
     return sqlQuery($sql);
 }
+
+function getAllNcc() {
+    $sql = "SELECT * FROM nhacungcap";
+    return sqlQuery($sql);
+}
+
 
 function getSPTheoTen($TenSP) {
     $sql = "SELECT * FROM sanpham WHERE TenSP LIKE '%" . $TenSP . "%'";
@@ -44,12 +44,6 @@ function getChiTietSanPham($MaSP) {
     return sqlQuery($sql);
 }
 
-/*
-  function getChiTietSanPham ($MaSP)
-  {
-  $sql = "SELECT sanpham.hinhanh,sanpham.TenSP,ctsp.MaSP,sp.DonGia,ctsp.MaNCC,ctsp.TheLoai,ctsp.mota,ctsp.CauHinh,ctsp.DungLuong FROM chitietsanpham ctsp,sanpham WHERE ctsp.MaSP = sanpham.MaSP AND ctsp.MaSP = '$MaSP'";
-  return sqlQuery($sql);
-  } */
 
 function getToTal($MaSP) {
     $sql = "SELECT count (MaSP) as ToTal FROM sanpham";
@@ -64,3 +58,9 @@ function addMoTa($masp, $mota) {
     $sql = "UPDATE ChiTietSanPham SET mota='" . $mota . "' WHERE MaSP='" . $masp . "';";
     return sqlQuery($sql);
 }
+
+function deleteSanPham($masp) {
+        $query = "DELETE FROM sanpham WHERE MaSP='$masp';";
+        return sqlQuery($query);
+}
+
