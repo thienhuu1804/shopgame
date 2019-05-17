@@ -51,5 +51,5 @@ if (!empty($_SESSION["cart"]))
 </div>	</table>';
 }
 else echo '<img class="img-responsive" width="900x" height=500px" src="img/giohangrong.png">
-<a href="http://localhost:8080/DoAn/shopgame/index.php?page=home"><button type="button" class="btn btn-warning">Mua ngay</button></a>';
+<a href="http://localhost:8080/DoAn/shopgame/index.php?page=1"><button type="button" class="btn btn-warning">Mua ngay</button></a>';
 ?>

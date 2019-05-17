@@ -47,7 +47,7 @@ echo '<div class="container-fluid">
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
-					<li><a href="?page=home"><span class="glyphicon glyphicon-home"> HOME</span></a></li>
+					<li><a href="?page=1"><span class="glyphicon glyphicon-home"> HOME</span></a></li>
 					<li><a href="#">Steam</a></li>
 					<li><a href="#">Origin</a></li>
 					<li><a href="#">PUBG</a></li>

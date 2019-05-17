@@ -92,6 +92,6 @@ function update(data,masp)
 	if(JSON.parse(data).tongsl == 0)
 	{
 		$('.col-sm-9.right').html(`<img class="img-responsive" width="900x" height=500px" src="img/giohangrong.png">
-			<a href="http://localhost:8080/DoAn/shopgame/index.php?page=home"><button type="button" class="btn btn-warning">Mua ngay</button></a>`);
+			<a href="http://localhost:8080/DoAn/shopgame/index.php?page=1"><button type="button" class="btn btn-warning">Mua ngay</button></a>`);
 	}
 }

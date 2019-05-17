@@ -1,66 +1,128 @@
-<?php
-/* if(!isset($_SESSION['tendangnhap'])){
-
-  echo "<script>window.open('login.php?not_admin=You are not an Admin!','_self')</script>";
-  }
-  else { */
-?>
 <script>
-    function confirmDelete(id) {
-        var conf = confirm('Bạn có chắc muốn xóa SP này?');
-        if (conf){
-            url = "xem_sanpham.php?delete_sp=" + id;
-            window.location.href = decodeURIComponent(url);
-        }
+  function confirmDelete(id) {
+    var conf = confirm('Bạn có chắc muốn xóa SP này?');
+    if (conf){
+      url = "xem_sanpham.php?delete_sp=" + id;
+      window.location.href = decodeURIComponent(url);
     }
+  }
 
 </script>
-<table width="795" align="center" bgcolor="pink">
-
-
-    <tr align="center">
-        <td colspan="6"><h2>Các Sản Phẩm</h2></td>
+<table class="table table-hover tableqluser">
+  <thead>
+    <tr>
+      <th style="text-align:center">STT</th>
+      <th style="text-align:center"> Mã sản phẩm </th>
+      <th style="text-align:center"> Tên </th>
+      <th style="text-align:center">Hình ảnh</th>
+      <th style="text-align:center">Giá</th>
+      <th style="text-align:center">Số lượng</th>
+      <th style="text-align:center">Chỉnh sửa</th>
+      <th style="text-align:center">Xóa sản phẩm</th>
     </tr>
-
-    <tr align="center" bgcolor="skyblue">
-        <th>STT</th>
-        <th>ID</th>
-        <th>Tên</th>
-        <th>Hình</th>
-        <th>Giá</th>
-        <th> So Luong</th>
-        <th>Chỉnh Sửa</th>
-        <th>Xóa SP</th>
-    </tr>
-    <?php
-    include '../KetNoiDB/access.php';
-    if (isset($_GET["delete_sp"])) {
-        $masp =$_GET["delete_sp"];
-        $result = deleteSanPham($masp);
-        if ($result) {
-            echo "<script>alert('Đã xóa sản phẩm $masp')</script>";
-            echo "<script>window.open('them_sanpham.php','_self')</script>";
-        }
+  </thead>
+  <?php
+  include '../KetNoiDB/access.php';
+  if (isset($_GET["delete_sp"])) {
+    $masp =$_GET["delete_sp"];
+    $result = deleteSanPham($masp);
+    if ($result) {
+      echo "<script>alert('Đã xóa sản phẩm $masp')</script>";
+      echo "<script>window.open('them_sanpham.php','_self')</script>";
     }
-    $confirm = getAllSanPham();
-    $i = 0;
-    while ($row_pro = mysqli_fetch_array($confirm)) {
-        $pro_id = $row_pro['MaSP'];
-        $pro_title = $row_pro['TenSP'];
-        $pro_image = $row_pro['hinhanh'];
-        $pro_price = $row_pro['DonGia'];
-        $pro_quantity = $row_pro['SoLuong'];
-        $i++;
-        ?>
-        <tr align="center">
-            <td><?php echo $i; ?> </td>
-            <td style="font-weight: bold;"><?php echo $pro_id ?></td> 
-            <td><?php echo $pro_title; ?></td>
-            <th><img src="../<?php echo $pro_image; ?>" width="90" height="110"/></td>
-            <td><?php echo $pro_price; ?> đ</td>
-            <td><?php echo $pro_quantity; ?></td>
-            <td><button><a href="index.php?edit_pro=<?php echo $pro_id; ?>">SỬA</a></button></td> 
-            <td><button onClick="confirmDelete('<?php echo $pro_id; ?>')">XÓA</button></td>
-        </tr>
-    <?php } ?>
-</table>
+  }
+  ?>
+  <?php
+  $rowsPerPage = 6;
+  $pageNum = 1;
+  if(isset($_GET['pages'])){
+    $pageNum = $_GET['pages'];
+  }
+  $offset = ($pageNum - 1) * $rowsPerPage;
+  $sql = "SELECT * FROM sanpham" . " LIMIT $offset, $rowsPerPage";
+  $result = getAllSanPhamPhanTrang($sql);
+  $confirm = getAllSanPham();
+  $i = $offset + 1;
+  while ($row_pro = mysqli_fetch_array($result)) {
+    $pro_id = $row_pro['MaSP'];
+    $pro_title = $row_pro['TenSP'];
+    $pro_image = $row_pro['hinhanh'];
+    $pro_price = $row_pro['DonGia'];
+    $pro_quantity = $row_pro['SoLuong'];
+    echo '<tr align="center">
+          <td>'.$i.'</td>
+          <td style="font-weight: bold;">'.$pro_id.'</td> 
+          <td>'.$pro_title.'</td>
+          <th><img src="../'.$pro_image.'" width="90" height="110"/></td>
+            <td>'.$pro_price.' vnđ</td>
+            <td>'.$pro_quantity.'</td>
+            <td><button><a href="index.php?edit_pro='.$pro_id.'">SỬA</a></button></td> 
+            <td><button onClick="confirmDelete(`'.$pro_id.'`)">XÓA</button></td>
+          </tr>';
+    $i++;
+  }
+
+  $sql   = "SELECT COUNT(*) AS numrows FROM sanpham";
+  $result = getAllSanPhamPhanTrang($sql);
+  $row     = mysqli_fetch_array($result);
+  $numrows = $row['numrows'];
+  $maxPage = ceil($numrows/$rowsPerPage);
+  $nav  = '';
+  for($page = 1; $page <= $maxPage; $page++)
+  {
+   if ($page == $pageNum)
+   {
+      $nav .= " $page "; // khong can tao link cho trang hien hanh
+    }
+    else
+    {
+      $nav .= " <a href=\"#\" 
+      onclick=\"phantrangajax($page)\">$page</a>";
+    }
+  }
+        // tao lien ket den trang truoc & trang sau, trang dau, trang cuoi
+  if ($pageNum > 1)
+  {
+   $page  = $pageNum - 1;
+   $prev  = " <a href=\"#\" onclick=\"phantrangajax($page)\">[Trang trước]</a> ";
+
+   $first = " <a href=\"#\" onclick=\"phantrangajax(1)\">[Trang đầu]</a> ";
+ }
+ else
+ {
+           $prev  = '&nbsp;'; // dang o trang 1, khong can in lien ket trang truoc
+           $first = '&nbsp;'; // va lien ket trang dau
+         }
+         if ($pageNum < $maxPage)
+
+         {
+           $page = $pageNum + 1;
+           $next = " <a href=\"#\" onclick=\"phantrangajax($page)\">[Trang kế]</a> ";
+           $last = " <a href=\"#\" onclick=\"phantrangajax($maxPage)\">[Trang cuối]</a> ";
+         }
+         else
+         {
+           $next = '&nbsp;'; // dang o trang cuoi, khong can in lien ket trang ke
+           $last = '&nbsp;'; // va lien ket trang cuoi
+         }
+
+        // hien thi cac link lien ket trang
+
+         ?>
+         
+        </table>
+        <script type="text/javascript">
+          function phantrangajax(trang) {
+            $.ajax({
+              type:"GET",
+              url:"xem_sanpham.php",
+              data: {"pages":trang}
+            }).done(function(data){
+              $(".right").html(data);
+            })
+          }
+        </script>
+      </table>
+      <?php 
+         echo "<center>". $first . $prev . $nav . $next . $last . "</center>";
+       ?>

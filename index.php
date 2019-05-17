@@ -89,28 +89,80 @@ if (isset($_GET['page'])) {
     include 'KetNoiDB/access.php';
 
     function showAllSanPham() {
-        $result = getAllSanPham();
-        while ($row = mysqli_fetch_array($result)) {
-            $MaSP = $row['MaSP'];
-            echo'   <div class="responsive">
-            <a href ="index.php?page=product&MaSP=' . $row["MaSP"] . '">
-            <div class="gallery">
-            <div>
-            <img class="img-responsive img" src="' . $row["hinhanh"] . '">
-            <div class="title">' . $row["TenSP"] . '</div>
-            <div class="price">Giá : ' . $row["DonGia"] . ' vnđ</div>
-            <div class="amount">Số lượng : ' . $row["SoLuong"] . '</div></a>
-            <input type="hidden" name="masp" value="' . $row["MaSP"] . '">
-            <div><button type="button" class="btn btn-outline-success btnthemgio" onclick=ajax("' . $row["MaSP"] . '");>Thêm vào giỏ<i class="fa fa-shopping-cart"></i></button></div>
-            </div>
-            </div>
-            </div>';
-        }
-    }
+        $rowsPerPage = 8;
+        $pageNum = 1;
+        if(isset($_GET['page'])){
+          $pageNum = $_GET['page'];
+      }
+      $offset = ($pageNum - 1) * $rowsPerPage;
+      $sql = "SELECT * FROM sanpham" .
+      " LIMIT $offset, $rowsPerPage";
+      $result = getAllSanPhamPhanTrang($sql);
+      while ($row = mysqli_fetch_array($result)){
+          echo'   <div class="responsive">
+          <a href ="index.php?page=product&MaSP=' . $row["MaSP"] . '">
+          <div class="gallery">
+          <div>
+          <img class="img-responsive img" src="' . $row["hinhanh"] . '">
+          <div class="title">' . $row["TenSP"] . '</div>
+          <div class="price">Giá : ' . $row["DonGia"] . ' vnđ</div>
+          <div class="amount">Số lượng : ' . $row["SoLuong"] . '</div></a>
+          <input type="hidden" name="masp" value="' . $row["MaSP"] . '">
+          <div><button type="button" class="btn btn-outline-success btnthemgio" onclick=ajax("' . $row["MaSP"] . '");>Thêm vào giỏ<i class="fa fa-shopping-cart"></i></button></div>
+          </div>
+          </div>
+          </div>';
+      }
+      $sql   = "SELECT COUNT(*) AS numrows FROM sanpham";
+      $result = getAllSanPhamPhanTrang($sql);
+      $row     = mysqli_fetch_array($result);
+      $numrows = $row['numrows'];
+      $maxPage = ceil($numrows/$rowsPerPage);
+      $self = "pagingbooks.php";
+      $nav  = '';
+      for($page = 1; $page <= $maxPage; $page++)
+      {
+       if ($page == $pageNum)
+       {
+      $nav .= " $page "; // khong can tao link cho trang hien hanh
+  }
+  else
+  {
+      $nav .= " <a href=\"?page=$page\">$page</a> ";
+  }
+}
+        // tao lien ket den trang truoc & trang sau, trang dau, trang cuoi
+if ($pageNum > 1)
+{
+ $page  = $pageNum - 1;
+ $prev  = " <a href=\"?page=$page\">[Trang trước]</a> ";
 
-    include_once 'Header.php';
-    include_once 'Container.php';
-    include_once 'Footer.php';
-    ?>
+ $first = " <a href=\"?page=1\">[Trang đầu]</a> ";
+}
+else
+{
+           $prev  = '&nbsp;'; // dang o trang 1, khong can in lien ket trang truoc
+           $first = '&nbsp;'; // va lien ket trang dau
+       }
+       if ($pageNum < $maxPage)
+       {
+         $page = $pageNum + 1;
+         $next = " <a href=\"?page=$page\">[Trang kế]</a> ";
+         $last = " <a href=\"?page=$maxPage\">[Trang cuối]</a> ";
+     }
+     else
+     {
+           $next = '&nbsp;'; // dang o trang cuoi, khong can in lien ket trang ke
+           $last = '&nbsp;'; // va lien ket trang cuoi
+       }
+
+        // hien thi cac link lien ket trang
+       echo "<center>". $first . $prev . $nav . $next . $last . "</center>";
+   }
+
+   include_once 'Header.php';
+   include_once 'Container.php';
+   include_once 'Footer.php';
+   ?>
 </body>
 </html>
