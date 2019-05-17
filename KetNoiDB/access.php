@@ -6,13 +6,17 @@ function sqlQuery($sql) {
     $con = ketnoidb("localhost", "root", "", "shopgame");
     mysqli_set_charset($con, 'UTF8');
     $result = mysqli_query($con, $sql);
+//    mysqli_close($con);
     if ($result) {
+        mysqli_close($con);
         return $result;
     } else {
         echo mysqli_error($con);
+        mysqli_close($con);
         return 0;
     }
 }
+
 function getAllSanPham() {
     $sql = "SELECT * FROM sanpham";
     return sqlQuery($sql);
@@ -22,7 +26,6 @@ function getAllNcc() {
     $sql = "SELECT * FROM nhacungcap";
     return sqlQuery($sql);
 }
-
 
 function getSPTheoTen($TenSP) {
     $sql = "SELECT * FROM sanpham WHERE TenSP LIKE '%" . $TenSP . "%'";
@@ -44,8 +47,7 @@ function getChiTietSanPham($MaSP) {
     return sqlQuery($sql);
 }
 
-
-function getToTal($MaSP) {
+function getToTal() {
     $sql = "SELECT count (MaSP) as ToTal FROM sanpham";
     return sqlQuery($sql);
 }
@@ -60,7 +62,42 @@ function addMoTa($masp, $mota) {
 }
 
 function deleteSanPham($masp) {
-        $query = "DELETE FROM sanpham WHERE MaSP='$masp';";
-        return sqlQuery($query);
+    $query = "DELETE FROM sanpham WHERE MaSP='$masp';";
+    return sqlQuery($query);
+}
+
+function getAllThanhVien() {
+    $sql = "SELECT * FROM thanhvien";
+    return sqlQuery($sql);
+}
+
+function getTaiKhoan($tendangnhap){
+    $sql= "SELECT FROM taikhoan WHERE TenDangNhap='$tendangnhap';";
+    return sqlQuery($sql);
+}
+
+function checkTaiKhoan($tendangnhap,$matkhau){
+    $sql= "SELECT * FROM taikhoan WHERE TenDangNhap='$tendangnhap' AND MatKhau='$matkhau' ;";
+    return sqlQuery($sql);
+}
+
+function addTaiKhoan($tendangnhap,$matkhau){
+    $sql = "INSERT INTO taikhoan VALUES ('$tendangnhap','$matkhau');";
+    return sqlQuery($sql);
+}
+
+function deleteTaiKhoan($tendangnhap){
+    $sql = "DELETE FROM taikhoan WHERE TenDangNhap='$$tendangnhap'";
+    return sqlQuery($sql);
+}
+
+function checkAdmin($tendangnhap){
+    $sql = "SELECT * FROM quantri WHERE TenDangNhap='$tendangnhap';";
+    return sqlQuery($sql);
+}
+
+function addThanhVien($matv,$tentv,$gmail,$diachi,$tendangnhap) {
+    $sql = "INSERT INTO thanhvien VALUES ('" . $matv . "','" . $tentv . "','" . $gmail . "','" . $diachi . "','" . $tendangnhap . "','0');";
+    return sqlQuery($sql);
 }
 

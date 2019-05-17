@@ -1,11 +1,11 @@
 <?php 
 session_start();
 $masp = $_GET['masp'];
-$soluonghientai = $_SESSION['cart'][$_GET['masp']]['sl'] ;
+$soluonghientai = $_SESSION['cart'][$masp]['sl'] ;
 $tien = $_SESSION["cart"][$masp]["sl"]*$_SESSION["cart"][$masp]["dongia"];
 if (isset($_GET['soluong'])){
-	$_SESSION['cart'][$_GET['masp']]['sl']= $_GET['soluong'];
-	$soluonghientai= $_SESSION['cart'][$_GET['masp']]['sl'];
+	$_SESSION['cart'][$masp]['sl']= $_GET['soluong'];
+	$soluonghientai= $_SESSION['cart'][$masp]['sl'];
 }
 if ($_GET['xoa']==1) {
 	unset($_SESSION['cart'][$_GET['masp']]);

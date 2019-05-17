@@ -58,11 +58,7 @@ if ($page == "home")
 
 if ($page == "dangki")
     include "dangkitaikhoan.php";
-if (isset($_GET["lastname"]) && isset($_GET["firstname"]) && isset($_GET["email"]) && isset($_GET["pass"]) && isset($_GET["diachi"]) && isset($_GET["gioi-tinh"])) {
-
-    header("Location: index.php?page=home");
-}
-if ($page == "dangnhap")
+else if ($page == "dangnhap")
     include "dangnhap.php";
 else if ($page == "timkiem")
     include 'timkiem.php';

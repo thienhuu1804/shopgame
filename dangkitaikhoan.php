@@ -1,8 +1,17 @@
 ﻿<?php
 echo'
 <div class="row">
-	<form name="dk" class="formdktk" onsubmit="return kiemtra();"  >
+	<form name="dk" method="GET" action="index.php" class="formdktk" onsubmit="return kiemtra();"  >
 		<h2>Đăng ký tài khoản</h2>
+                <input name="page" value="dangki" type="hidden" ></inout>
+                <div class="form-group">
+                        <label>Tên tài khoản</label>
+                        <input type="text" class="form-control" placeholder="Tên đăng nhập" required name="account">
+                </div>
+                <div class="form-group">
+			<label>Mật khẩu</label>
+			<input type="password" class="form-control" placeholder="Password của bạn" required name="pass">
+		</div>
 		<div class="form-group">
 			<div class="form-row">
 				<div class="col">
@@ -18,10 +27,6 @@ echo'
 		<div class="form-group">
 			<label>Email</label>
 			<input type="text" class="form-control" placeholder="Email của bạn" required name="email">
-		</div>
-		<div class="form-group">
-			<label>Mật khẩu</label>
-			<input type="password" class="form-control" placeholder="Password của bạn" required name="pass">
 		</div>
 		<div class="form-group">
 			<label>Địa chỉ</label>
@@ -45,5 +50,37 @@ echo'
 		</div>
 	</form>	
 </div>';
+if (isset($_GET["account"]) && isset($_GET["lastname"]) && isset($_GET["firstname"]) && isset($_GET["email"]) && isset($_GET["pass"]) && isset($_GET["diachi"])) {
+    $count = 1;
+    $dstv = getAllThanhVien();
+    while ($row = mysqli_fetch_array($dstv)) {
+        $count++;
+    }
+    $resultTaiKhoan = addTaiKhoan($_GET["account"], $_GET["pass"]);
+    if ($resultTaiKhoan) {
+        $ho = $_GET["firstname"];
+        $ten = $_GET["lastname"];
+        $hoten = "$ho $ten";
+        $resultThanhVien = addThanhVien("TV$count", $hoten, $_GET["email"], $_GET["diachi"], $_GET["account"]);
+        echo $resultThanhVien;
+        if ($resultThanhVien) {
+            echo "<script> alert('Đăng kí thành công! Đang về trang chủ !'); </script>";
+            echo "<script> alert('Đăng nhập thành công'); </script>";
+            $_SESSION["tendangnhap"] = $_GET["account"];
+            echo "<script> if (typeof (Storage) !== 'undefined') {
+                        sessionStorage.setItem('tendangnhap','" . $_SESSION["tendangnhap"] . "');
+                        window.location.href='index.php';
+                        } </script>";
+        } else {
+            deleteTaiKhoan($_GET["account"]);
+            echo "<script> alert('Lỗi thêm thông tin thành viên, vui lòng thử lại !'); </script>";
+        }
+    } else {
+        echo "<script> alert('Tài khoản đã tồn tại, vui lòng chọn tên khác !'); </script>";
+    }
+}
+else{
+    header("Location: index.php?page=dangki");
+}
 ?>
 

@@ -12,15 +12,6 @@ include '../KetNoiDB/access.php';
         </script>
         <title>Inserting Product</title>
     </head>
-    <?php
-    $soNcc = 0;
-    while ($row = mysqli_fetch_array(getAllNcc())) {
-        $soNcc++;
-    }
-    echo '<script language="javascript">';
-    echo "function checkNcc(){var x = document.getElementById('mancc'); if(x.value >$soNcc ) x.value= $soNcc;}";
-    echo '</script>';
-    ?>
     <body bgcolor="#18DFED">
         <form action="insert_product.php" method="post" enctype="multipart/form-data"> 
 
@@ -76,6 +67,15 @@ include '../KetNoiDB/access.php';
 
         </form>
         <?php
+        $soNcc = 0;
+        $result = getAllNcc();
+        while ($row = mysqli_fetch_array($result)) {
+            $soNcc++;
+        }
+        echo '<script language="javascript">';
+        echo "function checkNcc(){var x = document.getElementById('mancc'); if(x.value >$soNcc ) x.value= $soNcc;}";
+        echo '</script>';
+        
         if (isset($_GET["img"])) {
             $img = $_GET["img"];
             echo "<script language='javascript'>";
@@ -121,7 +121,7 @@ include '../KetNoiDB/access.php';
             $maSP = "SP$maSPMoi";
             $insert_product = " insert into sanpham ( MaSP,TenSp, hinhanh, dongia,soluong) values ('" . $maSP . "','" . $product_title . "','" . $product_image . "',' " . $product_price . "','" . $product_quantity . "');";
             $insert_product += "INSERT INTO chitietsanpham (MaSP,MaNCC,TheLoai,mota,CauHinh,DungLuong) VALUES (" . $maSP . "," . $mancc . "," . $theloai . "," . $mota . "," . $cauhinh . "," . $dungluong . ");";
-            $insert_pro = mysqli_query($con, $insert_product);
+            $insert_pro = sqlQuery($insert_product);
 //            echo $insert_pro;
 
             if ($insert_pro) {

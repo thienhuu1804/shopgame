@@ -16,8 +16,8 @@ function getCTSP(){
                       <div class="theloai">Dung lượng :'.$row["DungLuong"].'</div>
                     <div><button type="button" class="btn btn-outline-success btnthemgiochitiet" onclick=ajax("' . $row["MaSP"] . '");>Thêm vào giỏ<i class="fa fa-shopping-cart"></i></button></div>
                 </div>
-                <div>Mô tả: '.$row["mota"].'</div>
             </div>
+            <div>Mô tả: '.$row["mota"].'</div>
         </div>';
     } 
 }

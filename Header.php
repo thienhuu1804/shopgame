@@ -3,7 +3,7 @@ $sl=0;
 if(!empty($_SESSION['cart'])){
 	foreach ($_SESSION['cart'] as $key => $value) {
 	$sl=$sl+$_SESSION['cart'][$key]['sl'];
-}
+    }
 }
 echo '<div class="container-fluid">
 		<div class = "jumbotron jumbotron-fluid text-center header">
@@ -23,8 +23,9 @@ echo '<div class="container-fluid">
                                                     </div>
 						</div>
 					</form>
-				</div>
-				<div class = "col-sm-3 col-md-3 col-lg-3 ">
+				</div>';
+if(!isset($_SESSION["tendangnhap"])){
+    echo			'<div class = "col-sm-3 col-md-3 col-lg-3 ">
 					<ul class="nav navbar-nav navbar-left">
 						<li><a href="?page=dangki"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
 						<li><a href="?page=dangnhap"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
@@ -32,8 +33,19 @@ echo '<div class="container-fluid">
 						<li><a href="?page=giohang"><i class="fa fa-shopping-cart cart"><span class="badge badge-secondary" >'.$sl.'</span></i></a></li>
 						</div>
 					</ul>
-				</div>
-			</div>
+				</div>';
+}else{
+     echo			"<div class = 'col-sm-3 col-md-3 col-lg-3 '>
+					<ul class='nav navbar-nav navbar-left'>
+						<li><a href='?page=thongtinkhachhang'><span class='glyphicon glyphicon-user' style='font-size:150%;' ></span><span style='font-size:120%;'>Xin chào ".$_SESSION["tendangnhap"]."</span> </a></li>
+						<li><p onclick='dangxuat();'><span class='glyphicon glyphicon-log-in'></span> Đăng xuất</p></li>    
+                                                <div class = 'col-sm-1 col-md-1 col-lg-1'>
+						<li><a href='?page=giohang'><i class='fa fa-shopping-cart cart'><span class='badge badge-secondary' >$sl</span></i></a></li>
+						</div>
+					</ul>
+				</div>";
+}
+echo			'</div>
 		</div>
 	</div>
 	<div class="container-fluid">
@@ -57,6 +69,10 @@ echo '<div class="container-fluid">
 				</ul>	
 			</div>
 		</nav>
-	</div>'
+	</div>';
+if(isset($_GET["logout"])){
+    unset($_SESSION["tendangnhap"]);
+    echo "<script> window.location.href='index.php';  </script>";
+}
 ?>
 
