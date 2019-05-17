@@ -60,7 +60,7 @@ if (!isset($_SESSION['tendangnhap'])) {
                                             <script>
                                                 function dangxuat() {
                                                     if (typeof (Storage) !== 'undefined') {
-                                                        console.log(sessionStorage.getItem('tendangnhap'));
+//                                                        console.log(sessionStorage.getItem('tendangnhap'));
                                                         sessionStorage.removeItem('tendangnhap');
                                                         sessionStorage.clear();
                                                         window.location.href = "index.php?logout=true";

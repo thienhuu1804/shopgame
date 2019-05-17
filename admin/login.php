@@ -39,7 +39,7 @@ if (isset($_POST['login'])) {
         $checkAcc = sqlQuery("SELECT * FROM taikhoan where TenDangNhap='" . $resultAcc["TenDangNhap"] . "'");
         if($resultPass = mysqli_fetch_array($checkAcc)){
             if($pass == $resultPass["MatKhau"]){
-               $_SESSION['tendangnhap'] = $admin; 
+               $_SESSION['tendangnhap'] = $resultPass["TenDangNhap"]; 
                echo "<script> if (typeof (Storage) !== 'undefined') {
                         sessionStorage.setItem('tendangnhap','" . $_SESSION["tendangnhap"] . "');
                         window.location.href='index.php';
