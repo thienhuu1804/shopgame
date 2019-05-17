@@ -14,7 +14,7 @@ echo '<div class="container">
 				<li><a href="https://www.youtube.com/watch?v=lvyPzTh8agI&list=PLlh2tpWKa6tHocKmpqBg_m85mq6P-pqks&index=3"><img src="img/anh4.PNG" class="img-responsive center-block" alt="anh4"></a></li>
 			</div>
 			<div class="col-sm-9 right">
-				<!--Slideshow-->';
+							<!--Slideshow-->';
 if ($page == "home")
     echo '<div id="myCarousel" class="carousel slide" data-ride="carousel">
 					<!-- Indicators -->
@@ -44,8 +44,8 @@ if ($page == "home")
 						<span class="glyphicon glyphicon-chevron-right"></span>
 						<span class="sr-only">Next</span>
 					</a>
-				</div>';
-'<!--end slideshow-->
+				</div>';'
+									<!--end slideshow-->
 				<nav class="navbar navbar-inverse">					
 					<ul class="nav navbar-nav menu">
 						<li><a href="?page=noibat">Nổi bật</a></li>
@@ -55,14 +55,9 @@ if ($page == "home")
 						<li><a href="#">Khuyến mãi</a></li>
 					</ul>	
 				</nav>';
-
 if ($page == "dangki")
     include "dangkitaikhoan.php";
-if (isset($_GET["lastname"]) && isset($_GET["firstname"]) && isset($_GET["email"]) && isset($_GET["pass"]) && isset($_GET["diachi"]) && isset($_GET["gioi-tinh"])) {
-
-    header("Location: index.php?page=home");
-}
-if ($page == "dangnhap")
+else if ($page == "dangnhap")
     include "dangnhap.php";
 else if ($page == "timkiem")
     include 'timkiem.php';
@@ -80,7 +75,6 @@ else{
     $page == "home";
     showAllSanPham();
 }
-if (isset($_GET["mota"])) {
-    $mota = "";
-    addMoTa($_GET["masp"], $mota);
-}
+
+echo `</div>`;
+

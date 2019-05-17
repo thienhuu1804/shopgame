@@ -28,52 +28,68 @@ else {
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script type="text/javascript">
-            $(document).ready(function() {
-                $('#example').DataTable();
-            });
         </script>
     </head>
 
     <body>
-        <div class = "jumbotron jumbotron-fluid header">
-         <h3>Admin</h3>
-     </div>
-     <div class="container-fluid content">
+        <div class="header">
+           <ul>
+              <li><a href="#home">Khu quản lý</a></li>
+              <li><a href="http://localhost:8080/DoAn/shopgame/admin/index.php">Home</a></li>
+              <li><a href="#contact">Tài khoản</a></li>
+          </ul>
+      </div>
+      <div class="container-fluid content">
          <div>
-            <div class="col-sm-3 left">
+            <div class="col-sm-2 left">
               <ul class="nav nav-pills nav-stacked">
                <a href="?page=them_sanpham.php"> <li>Thêm sản phẩm</li></a>
-                <a href="?page=xem_sanpham.php&pages=1"><li>Xem các sản phẩm</li></a>
-                <a href="?page=xem_users.php"><li>Xem khách hàng</li></a>
-                <a href="?page=index.php?view_orders"><li>Xem đơn đặt hàng</li></a>
-               <a href="?page=index.php?view_payments"> <li>Xem các đơn đã xử lý</li></a>
-               <a href="?page=logout.php"> <li>Đăng xuất</li></a>
-            </ul>
-        </div>
-        <div class="col-sm-9 right">
-            <?php
-            if (isset($_GET['page'])) {
-                if ($page == "them_sanpham.php")
-                    include "them_sanpham.php";
-                if ($page == "xem_sanpham.php")
-                    include "xem_sanpham.php";
-                if ($page == "xem_users.php")
-                    include "xem_users.php";
-                if ($page == "index.php?view_orders")
-                    include "index.php?view_orders";
-                if ($page == "index.php?view_payments")
-                    include "index.php?view_payments";
-                if ($page == "logout.php")
-                    include "logout.php";
-            }
-            ?>
+               <a href="?page=xem_sanpham.php&pages=1"><li>Xem các sản phẩm</li></a>
+               <a href="?page=xem_users.php"><li>Xem khách hàng</li></a>
+               <a href="?page=index.php?view_orders"><li>Xem đơn đặt hàng</li></a>
+               <a href="?page=index.php?view_payments"> <li>Xem đơn đã xử lý</li></a>
+               <a href="?page=index.php?view_payments"> <li>Quản lý danh mục</li></a>
+           </ul>
+       </div>
+       <div class="col-sm-9 right">
+        <?php
+
+        if (isset($_GET['page'])) {
+            if ($page == "them_sanpham.php")
+                include "them_sanpham.php";
+            if ($page == "xem_sanpham.php")
+                include "xem_sanpham.php";
+            if ($page == "xem_users.php")
+                include "xem_users.php";
+            if ($page == "index.php?view_orders")
+                include "index.php?view_orders";
+            if ($page == "index.php?view_payments")
+                include "index.php?view_payments";
+            if ($page == "logout.php")
+                include "logout.php";
+        }
+        else {
+            include "headeradmin.php";
+             include "bieudo.php";
+        }
+        ?>
+    </div>
+</div>
+</div>
+
+<!--Bottom Footer-->
+<div class="bottom section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="copyright">
+                    <p>© <span>2018</span> <a href="#" class="transition">KnightRider7660</a> All rights reserved.</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-
-    <div class = "footer">
-     <h3>@Shop game rẻ nhất Việt Nam</h3>
- </div>
+<!--Bottom Footer-->
 </body>
 </html>
 <?php } ?>

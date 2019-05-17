@@ -50,15 +50,15 @@
     $pro_price = $row_pro['DonGia'];
     $pro_quantity = $row_pro['SoLuong'];
     echo '<tr align="center">
-          <td>'.$i.'</td>
-          <td style="font-weight: bold;">'.$pro_id.'</td> 
-          <td>'.$pro_title.'</td>
-          <th><img src="../'.$pro_image.'" width="90" height="110"/></td>
-            <td>'.$pro_price.' vnđ</td>
-            <td>'.$pro_quantity.'</td>
-            <td><button><a href="index.php?edit_pro='.$pro_id.'">SỬA</a></button></td> 
-            <td><button onClick="confirmDelete(`'.$pro_id.'`)">XÓA</button></td>
-          </tr>';
+    <td>'.$i.'</td>
+    <td style="font-weight: bold;">'.$pro_id.'</td> 
+    <td>'.$pro_title.'</td>
+    <th><img src="../'.$pro_image.'" width="90" height="110"/></td>
+    <td>'.$pro_price.' vnđ</td>
+    <td>'.$pro_quantity.'</td>
+    <td><button type="button" class="btn btn-info"><a href="index.php?edit_pro='.$pro_id.'">Sửa</a></button></td>
+    <td><button type="button" class="btn btn-danger" onClick="confirmDelete(`'.$pro_id.'`)">Xóa</button></td>
+    </tr>';
     $i++;
   }
 
@@ -72,12 +72,11 @@
   {
    if ($page == $pageNum)
    {
-      $nav .= " $page "; // khong can tao link cho trang hien hanh
+      $nav .= "<a href=\"#\" style=\"color:red;\">$page</a>"; // khong can tao link cho trang hien hanh
     }
     else
     {
-      $nav .= " <a href=\"#\" 
-      onclick=\"phantrangajax($page)\">$page</a>";
+      $nav .= " <a href=\"#\" onclick=\"phantrangajax($page)\">$page</a>";
     }
   }
         // tao lien ket den trang truoc & trang sau, trang dau, trang cuoi
@@ -110,19 +109,24 @@
 
          ?>
          
-        </table>
-        <script type="text/javascript">
-          function phantrangajax(trang) {
-            $.ajax({
-              type:"GET",
-              url:"xem_sanpham.php",
-              data: {"pages":trang}
-            }).done(function(data){
-              $(".right").html(data);
-            })
-          }
-        </script>
-      </table>
-      <?php 
-         echo "<center>". $first . $prev . $nav . $next . $last . "</center>";
-       ?>
+       </table>
+       <script type="text/javascript">
+        function phantrangajax(trang) {
+          $.ajax({
+            type:"GET",
+            url:"xem_sanpham.php",
+            data: {"pages":trang}
+          }).done(function(data){
+            $(".right").html(data);
+          })
+        }
+      </script>
+    </table>
+    <center><ul class="pagination paging">
+      <li class="page-item"><?php echo $first ?></li>
+      <li class="page-item"><?php echo $prev ?></li>
+      <li class="page-item"><?php echo $nav ?></li>
+      <li class="page-item"><?php echo $next ?></li>
+      <li class="page-item"><?php echo $last ?></li>
+    </ul></center>
+  
