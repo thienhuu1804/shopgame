@@ -16,12 +16,14 @@ function sqlQuery($sql) {
         return 0;
     }
 }
-
-function getAllSanPham() {
+function getAllSanPhamPhanTrang($sql)
+{
+    return sqlQuery($sql);
+}
+function getAllSanPham() { 
     $sql = "SELECT * FROM sanpham";
     return sqlQuery($sql);
 }
-
 function getAllNcc() {
     $sql = "SELECT * FROM nhacungcap";
     return sqlQuery($sql);

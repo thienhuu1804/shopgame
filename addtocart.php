@@ -15,7 +15,7 @@ if (!empty($_SESSION["cart"]))
 		<td>'.$_SESSION["cart"][$key]["tensp"].'</td>
 		<td>'.number_format($_SESSION["cart"][$key]["dongia"]).' vnđ</td>
 		<td><input type="button" id="giamsp" class="Giam" name="amountDecrease" value="-" " onclick="giamsanpham(`'.$key.'`)"/>
-			<input type="number" id="itemAmount" value="'.$_SESSION["cart"][$key]["sl"].'" onkeyup="nhapsosanpham(`'.$key.'`)" >
+			<input type="number" id="itemAmount" value="'.$_SESSION["cart"][$key]["sl"].'" onkeyup="nhapsosanpham(`'.$key.'`)"/>
 			<input type="button" id="tangsp" class="Tang" name="amountIncrease" value="+" " onclick="tangsanpham(`'.$key.'`)"/> <br>
 			<td id="tong">'.number_format($tong).' vnđ</td>
 			<td><button onclick="xoa(`'.$key.'`);" style="margin-bottom: 10px" type="button" class="btn btn-danger btn-lg btn-sm"><span class="glyphicon glyphicon-trash"></span></button></td>
@@ -51,5 +51,5 @@ if (!empty($_SESSION["cart"]))
 </div>	</table>';
 }
 else echo '<img class="img-responsive" width="900x" height=500px" src="img/giohangrong.png">
-<a href="http://localhost:8080/DoAn/shopgame1/index.php?page=home"><button type="button" class="btn btn-warning">Mua ngay</button></a>';
+<a href="http://localhost:8080/DoAn/shopgame/index.php?page=1"><button type="button" class="btn btn-warning">Mua ngay</button></a>';
 ?>

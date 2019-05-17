@@ -3,7 +3,7 @@
 if (isset($_GET["page"])) {
     $page = $_GET['page'];
 } else {
-    $page = "home";
+    $page = "1";
 }
 echo '<div class="container">
 		<div class="row">

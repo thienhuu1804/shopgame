@@ -3,26 +3,24 @@ session_start();
 ?>
 <!DOCTYPE>
 <html>
-    <head>
-        <title>ADMIN</title>
-        <link rel="stylesheet" href="login_style.css" media="all" />
+<head>
+    <title>ADMIN</title>
+    <link rel="stylesheet" href="login_style.css" media="all" />
 
-    </head>
-    <body background="abstract-1522884_1280.jpg">
-
-
-        <div class="login">
+</head>
+<body background="abstract-1522884_1280.jpg">
+    <div class="login">
         <!--<h2 style="color:white; text-align:center;"><?php echo @$_GET['not_admin']; ?></h2>-->
 
-            <h2 style="color:white; text-align:center;"><?php echo @$_GET['logged_out']; ?></h2>
-            <h1>Đăng Nhập Admin</h1>
-            <form method="post" action="login.php">
-                <input type="text" name="admin" placeholder="Tài khoản Admin" required="required" />
-                <input type="password" name="password" placeholder="Mật khẩu" required="required" />
-                <button type="submit" class="btn btn-primary btn-block btn-large" name="login">Đăng Nhập</button>
-            </form>
-        </div>
+        <h2 style="color:white; text-align:center;"><?php echo @$_GET['logged_out']; ?></h2>
+        <h1>Đăng Nhập Admin</h1>
+        <form method="post" action="login.php">
+            <input type="text" name="admin" placeholder="Tài khoản Admin" required="required" />
+            <input type="password" name="password" placeholder="Mật khẩu" required="required" />
+            <button type="submit" class="btn btn-primary btn-block btn-large" name="login">Đăng Nhập</button>
+        </form>
     </div>
+</div>
 
 </body>
 </html>
