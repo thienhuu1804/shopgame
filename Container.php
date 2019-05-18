@@ -73,7 +73,7 @@ else if ($page == "khachhangvip")
 else if ($page == "napthe")
     include 'napthe.php';
 else{
-    $page == "home";
+    $page == 1;
     showAllSanPham();
 }
 if (isset($_GET["mota"])) {

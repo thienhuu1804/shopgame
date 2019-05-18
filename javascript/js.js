@@ -11,18 +11,22 @@ function kiemtra() {
 
     if (f.test(ho) == false) {
         alert("Họ không hợp lệ!!!");
+        document.forms["dk"]["firstname"].focus();
         return false;
     }
     if (l.test(ten) == false) {
         alert("Tên không hợp lệ!!!");
+        document.forms["dk"]["lastname"].focus();
         return false;
     }
     if (e.test(email) == false) {
         alert("Email khong hop le !!!");
+        document.forms["dk"]["email"].focus();
         return false;
     }
     if (pw.length < 6) {
-        alert("Password không hợp lệ!!!");
+        alert("Password tối thiểu 6 kí tự!!!");
+        document.forms["dk"]["pass"].focus();
         return false;
     }
     return true;

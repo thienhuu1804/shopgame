@@ -21,7 +21,7 @@ $connection=mysqli_connect("localhost", "root", "", "shopgame") or die("can't co
 		<table align="center" width="795" border="2" bgcolor="#187eae">
 			
 			<tr align="center">
-				<td colspan="7"><h2>THÊM SẢN PHẨM</h2></td>
+				<td colspan="7"><h2>SỬA SẢN PHẨM</h2></td>
 			</tr>
 			<tr>
 				<td align="right"><b>Ma SP:</b></td>

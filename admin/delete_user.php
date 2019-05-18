@@ -11,7 +11,7 @@
 	
 	echo "<script>alert('Đã xóa tài khoản người dùng!')</script>";
 	/*echo "<script>window.open('index.php','_self')</script>";*/
-	echo "<script>window.open('xem_users.php','_self')</script>";
+	echo "<script>window.reload();</script>";
 	}
 	
 }

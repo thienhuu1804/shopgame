@@ -9,11 +9,7 @@ if (!isset($_SESSION['tendangnhap'])) {
     echo "<script>window.open('login.php?not_admin=You are not an Admin!','_self')</script>";
 } else {
     ?>
-    echo "<script>window.open('login.php?not_admin=You are not an Admin!', '_self')</script>";
-    }
-    else {
 
-    ?>
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
     <html xmlns="http://www.w3.org/1999/xhtml">
         <head>
@@ -31,7 +27,7 @@ if (!isset($_SESSION['tendangnhap'])) {
                                         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
                                         <script type="text/javascript">
         $(document).ready(function () {
-            $('#example').DataTable();
+            $('#example').DataTable;
         });
                                         </script>
                                         </head>
@@ -62,10 +58,12 @@ if (!isset($_SESSION['tendangnhap'])) {
                                                                 include "xem_sanpham.php";
                                                             else if ($page == "xem_users.php")
                                                                 include "xem_users.php";
-                                                            else if ($page == "index.php?view_orders")
-                                                                include "index.php?view_orders";
-                                                            else if ($page == "index.php?view_payments")
-                                                                include "index.php?view_payments";
+//                                                            else if ($page == "view_orders")
+//                                                                include "index.php?view_orders";
+//                                                            else if ($page == "view_payments")
+//                                                                include "index.php?view_payments";
+                                                            else if ($page == "sua_sanpham.php")
+                                                                include "sua_sanpham.php";
                                                             if (isset($_GET["logout"])) {
                                                                 unset($_SESSION["tendangnhap"]);
                                                                 echo "<script> window.location.href='index.php';  </script>";

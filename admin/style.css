@@ -28,7 +28,7 @@
 .left li:hover
 {
 	background: #f2b468;
-	color: 
+	color: red;
 	cursor: pointer;
 	transform: scale(1.03);
 	transition: 0.3s;

@@ -2,6 +2,11 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/Z:/xampp/htdocs/shopgame/admin/delete_user.php</file>
+            <file>file:/Z:/xampp/htdocs/shopgame/admin/login.php</file>
+            <file>file:/Z:/xampp/htdocs/shopgame/admin/index.php</file>
+            <file>file:/Z:/xampp/htdocs/shopgame/admin/xem_users.php</file>
+        </group>
     </open-files>
 </project-private>

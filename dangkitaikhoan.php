@@ -80,7 +80,8 @@ if (isset($_GET["account"]) && isset($_GET["lastname"]) && isset($_GET["firstnam
     }
 }
 else{
-    header("Location: index.php?page=dangki");
+//    echo "<script> window.location.href='index.php?page=dangki'; </script>";
+////    header("Location: index.php?page=dangki");
 }
 ?>
 

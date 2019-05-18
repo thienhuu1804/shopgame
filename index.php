@@ -95,8 +95,7 @@ if (isset($_GET['page'])) {
           $pageNum = $_GET['page'];
       }
       $offset = ($pageNum - 1) * $rowsPerPage;
-      $sql = "SELECT * FROM sanpham" .
-      " LIMIT $offset, $rowsPerPage";
+      $sql = "SELECT * FROM sanpham LIMIT $offset, $rowsPerPage";
       $result = getAllSanPhamPhanTrang($sql);
       while ($row = mysqli_fetch_array($result)){
           echo'   <div class="responsive">
